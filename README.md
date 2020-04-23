@@ -13,3 +13,4 @@ This is a project to implement Painting Board using HTML, CSS and JS.<br>
 ## 결과물
 
 ## 참고사항
+- [메모](https://github.com/hhhan0315/paint-js/blob/master/memo.md)
