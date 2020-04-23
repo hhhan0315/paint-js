@@ -7,5 +7,9 @@
     - [MDN - CanvasRenderingContext2D](https://developer.mozilla.org/ko/docs/Web/API/CanvasRenderingContext2D)
 
   - change color
+
     - [MDN - Array.from()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
     - [MDN - EventTarget](https://developer.mozilla.org/ko/docs/Web/API/EventTarget)
+
+  - save image
+    - [MDN - <a>](https://developer.mozilla.org/ko/docs/Web/HTML/Element/a)

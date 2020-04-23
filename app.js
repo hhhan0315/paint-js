@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
+const save = document.getElementById("jsSave");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 650;
@@ -11,6 +12,10 @@ const CANVAS_SIZE = 650;
 // html에 선언해주거나 js 여기에 선언해주자.
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
+
+// 초기화 (이미지 오른쪽 버튼 저장 시 바탕 하얀색)
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
 
 ctx.strokeStyle = INITIAL_COLOR;
 ctx.fillStyle = INITIAL_COLOR;
@@ -48,12 +53,18 @@ function handleCanvasClick() {
   }
 }
 
+function handleRightClick(event) {
+  // 오른쪽 버튼 클릭 막음
+  event.preventDefault();
+}
+
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
   canvas.addEventListener("click", handleCanvasClick);
+  canvas.addEventListener("contextmenu", handleRightClick);
 }
 
 function handleColorClick(event) {
@@ -88,4 +99,19 @@ function handleModeClick() {
 
 if (mode) {
   mode.addEventListener("click", handleModeClick);
+}
+
+function handleSaveClick() {
+  const image = canvas.toDataURL();
+  // 직접 html 에서 a 태그를 사용한다면 link.click()이 필요없지만 여기는 내가 요소를 만들어준거라 필요.
+  // const link = document.querySelector("a");
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "PaintJS[EXPORT]";
+  //  클릭을 거짓으로 만든다.
+  link.click();
+}
+
+if (save) {
+  save.addEventListener("click", handleSaveClick);
 }
