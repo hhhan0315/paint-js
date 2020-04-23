@@ -1,5 +1,6 @@
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
+const colors = document.getElementsByClassName("jsColor");
 
 // canvas.width = 650;
 // canvas.height = 650;
@@ -34,9 +35,20 @@ function onMouseMove(event) {
   }
 }
 
+function handleColorClick(event) {
+  const color = event.target.style.backgroundColor;
+  ctx.strokeStyle = color;
+}
+
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
 }
+
+// forEach 의 color는 다른 이름으로도 가능.
+// 배열로 만들고 각각마다 click event 추가
+Array.from(colors).forEach((color) =>
+  color.addEventListener("click", handleColorClick)
+);
