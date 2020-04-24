@@ -12,4 +12,4 @@
     - [MDN - EventTarget](https://developer.mozilla.org/ko/docs/Web/API/EventTarget)
 
   - save image
-    - [MDN - <a>](https://developer.mozilla.org/ko/docs/Web/HTML/Element/a)
+    - [MDN - a](https://developer.mozilla.org/ko/docs/Web/HTML/Element/a)
